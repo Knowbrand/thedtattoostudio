@@ -4,170 +4,410 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The D Tattoo Studio | Raipur</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family:'Poppins',sans-serif;
+    background:#111;
+    color:#fff;
+}
+
+.container {
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* NAVBAR */
+.navbar {
+    padding:20px 0;
+    background:#111;
+    position:absolute;
+    width:100%;
+    z-index:10;
+}
+
+.nav-flex {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo {
+    font-family:'Oswald';
+    font-size:28px;
+    letter-spacing:3px;
+}
+
+nav a {
+    margin:0 12px;
+    text-decoration:none;
+    color:#ccc;
+    font-size:14px;
+}
+
+.cart {
+    font-size:14px;
+    border:1px solid #555;
+    padding:6px 14px;
+    border-radius:20px;
+}
+
+/* HERO */
+.hero {
+    height:100vh;
+    display:flex;
+    align-items:center;
+    padding:0 5%;
+}
+
+.hero-left { flex:1; }
+
+.hero-right {
+    flex:1;
+    height:85%;
+    background:#222;
+}
+
+.small-tag {
+    font-size:12px;
+    letter-spacing:2px;
+    color:#aaa;
+}
+
+.hero h1 {
+    font-family:'Oswald';
+    font-size:64px;
+    line-height:1.1;
+    margin:20px 0;
+}
+
+.hero p {
+    color:#bbb;
+    max-width:500px;
+    margin-bottom:30px;
+}
+
+.btn-outline {
+    border:1px solid #fff;
+    padding:12px 30px;
+    text-decoration:none;
+    color:#fff;
+}
+
+/* BRUSH TRANSITIONS */
+.brush-light {
+    height:80px;
+    background:#e9e3db;
+}
+
+.brush-dark {
+    height:80px;
+    background:#111;
+}
+
+/* CONSULT */
+.consult {
+    background:#e9e3db;
+    color:#111;
+    padding:120px 0;
+}
+
+.consult-flex {
+    display:flex;
+    gap:60px;
+    align-items:center;
+}
+
+.consult-text h2 {
+    font-family:'Oswald';
+    font-size:42px;
+    margin:20px 0;
+}
+
+.consult-text p {
+    max-width:500px;
+    margin-bottom:30px;
+}
+
+.consult-image {
+    flex:1;
+    height:400px;
+    background:#ccc;
+}
+
+.btn-dark {
+    display:inline-block;
+    padding:12px 30px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+}
+
+/* FEATURED */
+.featured {
+    padding:120px 0;
+}
+
+.section-head {
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:50px;
+}
+
+.section-head h2 {
+    font-family:'Oswald';
+    font-size:40px;
+}
+
+.product-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.product {
+    transition:0.3s ease;
+}
+
+.product-image {
+    height:320px;
+    background:#222;
+    margin-bottom:15px;
+}
+
+.product h4 {
+    margin-bottom:5px;
+}
+
+.product p {
+    color:#bbb;
+}
+
+.product:hover {
+    transform:translateY(-5px);
+}
+
+/* BOOKING STRIP */
+.booking-strip {
+    background:#e9e3db;
+    color:#111;
+    padding:80px 0;
+}
+
+.strip-flex {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.strip-flex h3 {
+    font-family:'Oswald';
+    font-size:32px;
+}
+
+/* INFO STRIP */
+.info-strip {
+    padding:100px 0;
+    background:#111;
+}
+
+.info-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:40px;
+}
+
+.info-grid h4 {
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer {
+    background:#0a0a0a;
+    padding:100px 0 20px;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:50px;
+}
+
+.footer-grid h4 {
+    margin-bottom:15px;
+}
+
+.footer-grid p {
+    color:#aaa;
+    margin-bottom:8px;
+}
+
+.copyright {
+    text-align:center;
+    margin-top:40px;
+    font-size:12px;
+    color:#666;
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
-    <div class="container nav-container">
+    <div class="container nav-flex">
         <div class="logo">THE D</div>
         <nav>
-            <a href="#">Home</a>
             <a href="#">Studio</a>
-            <a href="#">Gallery</a>
-            <a href="#">Marketplace</a>
+            <a href="#">Shop</a>
+            <a href="#">About</a>
             <a href="#">Contact</a>
+            <a href="#">Blog</a>
+            <a href="#">FAQ</a>
         </nav>
-        <a href="#" class="book-btn">Book Now</a>
+        <div class="cart">₹0.00</div>
     </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>INK YOUR IDENTITY</h1>
-        <h2>CRAFTED WITH PRECISION</h2>
-        <p>Premium custom tattoos designed to tell your story.</p>
-        <div class="hero-buttons">
-            <a href="#" class="btn-primary">View Portfolio</a>
-            <a href="#" class="btn-outline">Book Session</a>
-        </div>
+    <div class="hero-left">
+        <span class="small-tag">PREMIUM ARTISTRY</span>
+        <h1>
+            JOIN YOUR<br>
+            BODY TO ARTISTIC<br>
+            EXPRESSION
+        </h1>
+        <p>
+            Dedicated to fine art and custom tattoo designs crafted with
+            precision and professional standards.
+        </p>
+        <a href="#" class="btn-outline">BOOK SESSION</a>
     </div>
+
+    <div class="hero-right"></div>
 </section>
 
-<div class="brush-divider"></div>
+<div class="brush-light"></div>
 
-<!-- ABOUT / CONSULTATION -->
-<section class="about">
-    <div class="container split">
-        <div class="text">
-            <h2>Tattoos & Consultation</h2>
+<section class="consult">
+    <div class="container consult-flex">
+        <div class="consult-text">
+            <span class="small-tag">BOOK SESSION</span>
+            <h2>TATTOOS & CONSULTATION</h2>
             <p>
-                At The D Tattoo Studio, we specialize in custom-designed artwork,
-                precision ink, and a sterile professional environment.
-                Every design begins with a consultation to bring your vision to life.
+                Any inquiries? Let us find the best fit for your needs.
+                Every design begins with a personal consultation to bring
+                your vision to life with precision.
             </p>
-            <a href="#" class="btn-primary">Schedule Consultation</a>
+            <a href="#" class="btn-dark">CONTACT NOW</a>
         </div>
 
-        <div class="image-placeholder">
-            IMAGE PLACEHOLDER
-        </div>
+        <div class="consult-image"></div>
     </div>
 </section>
 
-<div class="brush-divider dark"></div>
+<div class="brush-dark"></div>
 
-<!-- FEATURED WORK -->
 <section class="featured">
     <div class="container">
-        <h2 class="section-title">FEATURED ARTWORK</h2>
+        <div class="section-head">
+            <h2>NEW IN</h2>
+            <span>VIEW ALL</span>
+        </div>
 
-        <div class="grid">
-            <div class="card">
-                <div class="image-placeholder small"></div>
-                <h3>Blackwork Sleeve</h3>
-                <p>₹8,999</p>
+        <div class="product-grid">
+            <div class="product">
+                <div class="product-image"></div>
+                <h4>Stencil Prep – Bold Flash Ready</h4>
+                <p>₹5,999</p>
             </div>
 
-            <div class="card">
-                <div class="image-placeholder small"></div>
-                <h3>Fine Line Minimal</h3>
-                <p>₹4,999</p>
+            <div class="product">
+                <div class="product-image"></div>
+                <h4>Traditional Ink – Bold Lines</h4>
+                <p>₹8,499</p>
             </div>
 
-            <div class="card">
-                <div class="image-placeholder small"></div>
-                <h3>Portrait Realism</h3>
+            <div class="product">
+                <div class="product-image"></div>
+                <h4>Vintage Coil – Classic Machine</h4>
                 <p>₹12,999</p>
             </div>
 
-            <div class="card">
-                <div class="image-placeholder small"></div>
-                <h3>Traditional Design</h3>
-                <p>₹6,499</p>
+            <div class="product">
+                <div class="product-image"></div>
+                <h4>Precision Ink Session</h4>
+                <p>₹9,499</p>
             </div>
         </div>
     </div>
 </section>
 
-<div class="brush-divider"></div>
+<div class="brush-light"></div>
 
-<!-- BOOKING BANNER -->
-<section class="booking-banner">
-    <div class="container banner-content">
-        <h2>LIMITED SLOTS AVAILABLE EACH WEEK</h2>
-        <p>Secure your appointment now and bring your vision to life.</p>
-        <a href="#" class="btn-primary">Book Your Session</a>
+<section class="booking-strip">
+    <div class="container strip-flex">
+        <h3>BOOK NOW. PAY AT STUDIO.</h3>
+        <a href="#" class="btn-dark">FIND OUT MORE</a>
     </div>
 </section>
 
-<!-- TRUST ICONS -->
-<section class="trust">
-    <div class="container trust-grid">
+<section class="info-strip">
+    <div class="container info-grid">
         <div>
-            <h4>✔ Sterilized Equipment</h4>
+            <h4>FREE CONSULTATION</h4>
+            <p>Discuss your idea before finalizing.</p>
+        </div>
+        <div>
+            <h4>CUSTOM ARTWORK</h4>
+            <p>Designed exclusively for you.</p>
+        </div>
+        <div>
+            <h4>STERILE EQUIPMENT</h4>
             <p>Professional hygiene standards.</p>
         </div>
         <div>
-            <h4>✔ Certified Artists</h4>
-            <p>Experienced & skilled professionals.</p>
-        </div>
-        <div>
-            <h4>✔ Custom Designs</h4>
-            <p>No copied templates. Unique artwork.</p>
-        </div>
-        <div>
-            <h4>✔ Aftercare Support</h4>
-            <p>Guidance for proper healing.</p>
+            <h4>AFTERCARE SUPPORT</h4>
+            <p>We guide you through healing.</p>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
-    <div class="container">
-        <h2 class="section-title">Visit Our Studio</h2>
-
-        <p>
-        Police Station, Near Asian Paints Telibandha, bridge, beside Shani Mandir,  
-        near Telibandha, Avanti Vihar road,  
-        Raipur, Chhattisgarh 492001
-        </p>
-
-        <p>📞 +91 98765 43210</p>
-    </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
     <div class="container footer-grid">
         <div>
-            <h3>THE D TATTOO STUDIO</h3>
-            <p>Raipur, Chhattisgarh</p>
+            <h4>CONTACT</h4>
+            <p>
+            Police Station, Near Asian Paints Telibandha bridge,<br>
+            beside Shani Mandir, Avanti Vihar road,<br>
+            Raipur, Chhattisgarh 492001
+            </p>
+            <p>+91 98765 43210</p>
         </div>
 
         <div>
-            <h4>Quick Links</h4>
+            <h4>QUICK LINKS</h4>
             <p>Home</p>
+            <p>Studio</p>
             <p>Gallery</p>
-            <p>Marketplace</p>
-            <p>Contact</p>
+            <p>Shop</p>
         </div>
 
         <div>
-            <h4>Services</h4>
+            <h4>SERVICES</h4>
             <p>Custom Tattoos</p>
             <p>Cover Ups</p>
+            <p>Blackwork</p>
             <p>Realism</p>
-            <p>Minimal Designs</p>
         </div>
     </div>
 
     <div class="copyright">
-        © 2026 The D Tattoo Studio. All Rights Reserved.
+        © 2026 The D Tattoo Studio
     </div>
 </footer>
 
