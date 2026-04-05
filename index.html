@@ -8,22 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
 
-body {
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
     font-family:'Poppins',sans-serif;
     background:#111;
     color:#fff;
+    overflow-x:hidden;
 }
 
-.container {
+.container{
     width:90%;
     max-width:1200px;
     margin:auto;
 }
 
 /* NAVBAR */
-.navbar {
+.navbar{
     padding:20px 0;
     background:#111;
     position:absolute;
@@ -31,26 +33,26 @@ body {
     z-index:10;
 }
 
-.nav-flex {
+.nav-flex{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.logo {
+.logo{
     font-family:'Oswald';
     font-size:28px;
     letter-spacing:3px;
 }
 
-nav a {
+nav a{
     margin:0 12px;
     text-decoration:none;
     color:#ccc;
     font-size:14px;
 }
 
-.cart {
+.cart{
     font-size:14px;
     border:1px solid #555;
     padding:6px 14px;
@@ -58,119 +60,90 @@ nav a {
 }
 
 /* HERO */
-.hero {
+.hero{
     height:100vh;
     display:flex;
     align-items:center;
     padding:0 5%;
 }
 
-.hero-left { 
-    flex:1; 
-}
+.hero-left{flex:1;}
 
-.hero-right {
+.hero-right{
     flex:1;
     height:85%;
     background:#222;
 }
 
-.small-tag {
+.small-tag{
     font-size:12px;
     letter-spacing:2px;
     color:#aaa;
 }
 
-.hero h1 {
+.hero h1{
     font-family:'Oswald';
     font-size:64px;
     line-height:1.1;
     margin:20px 0;
 }
 
-.hero p {
+.hero p{
     color:#bbb;
     max-width:500px;
     margin-bottom:30px;
 }
 
-.btn-outline {
+.btn-outline{
     border:1px solid #fff;
     padding:12px 30px;
     text-decoration:none;
     color:#fff;
+    display:inline-block;
 }
 
-
-/* ===== MOBILE FIX ===== */
-@media(max-width: 768px){
-
-    .hero {
-        flex-direction:column;
-        justify-content:center;
-        text-align:center;
-        padding:0 20px;
-    }
-
-    .hero-right {
-        display:none;   /* REMOVE IMAGE ON PHONE */
-    }
-
-    .hero-left {
-        flex:none;
-    }
-
-    .hero h1 {
-        font-size:40px;
-    }
-
-    .hero p {
-        max-width:100%;
-    }
-
-}
-/* BRUSH TRANSITIONS */
-.brush-light {
+/* BRUSH SECTIONS */
+.brush-light{
     height:80px;
     background:#e9e3db;
 }
 
-.brush-dark {
+.brush-dark{
     height:80px;
     background:#111;
 }
 
 /* CONSULT */
-.consult {
+.consult{
     background:#e9e3db;
     color:#111;
     padding:120px 0;
 }
 
-.consult-flex {
+.consult-flex{
     display:flex;
     gap:60px;
     align-items:center;
 }
 
-.consult-text h2 {
+.consult-text h2{
     font-family:'Oswald';
     font-size:42px;
     margin:20px 0;
 }
 
-.consult-text p {
+.consult-text p{
     max-width:500px;
     margin-bottom:30px;
 }
 
-.consult-image {
+.consult-image{
     flex:1;
     height:400px;
     background:#ccc;
 }
 
-.btn-dark {
+.btn-dark{
     display:inline-block;
     padding:12px 30px;
     background:#111;
@@ -179,110 +152,147 @@ nav a {
 }
 
 /* FEATURED */
-.featured {
+.featured{
     padding:120px 0;
 }
 
-.section-head {
+.section-head{
     display:flex;
     justify-content:space-between;
     margin-bottom:50px;
 }
 
-.section-head h2 {
+.section-head h2{
     font-family:'Oswald';
     font-size:40px;
 }
 
-.product-grid {
+.product-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:30px;
 }
 
-.product {
+.product{
     transition:0.3s ease;
 }
 
-.product-image {
+.product-image{
     height:320px;
     background:#222;
     margin-bottom:15px;
 }
 
-.product h4 {
-    margin-bottom:5px;
-}
+.product h4{margin-bottom:5px;}
+.product p{color:#bbb;}
 
-.product p {
-    color:#bbb;
-}
-
-.product:hover {
+.product:hover{
     transform:translateY(-5px);
 }
 
 /* BOOKING STRIP */
-.booking-strip {
+.booking-strip{
     background:#e9e3db;
     color:#111;
     padding:80px 0;
 }
 
-.strip-flex {
+.strip-flex{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.strip-flex h3 {
+.strip-flex h3{
     font-family:'Oswald';
     font-size:32px;
 }
 
-/* INFO STRIP */
-.info-strip {
+/* INFO */
+.info-strip{
     padding:100px 0;
     background:#111;
 }
 
-.info-grid {
+.info-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:40px;
 }
 
-.info-grid h4 {
-    margin-bottom:10px;
-}
+.info-grid h4{margin-bottom:10px;}
 
 /* FOOTER */
-footer {
+footer{
     background:#0a0a0a;
     padding:100px 0 20px;
 }
 
-.footer-grid {
+.footer-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:50px;
 }
 
-.footer-grid h4 {
-    margin-bottom:15px;
-}
+.footer-grid h4{margin-bottom:15px;}
 
-.footer-grid p {
+.footer-grid p{
     color:#aaa;
     margin-bottom:8px;
 }
 
-.copyright {
+.copyright{
     text-align:center;
     margin-top:40px;
     font-size:12px;
     color:#666;
 }
+
+/* ========================= */
+/* MOBILE OPTIMIZATION */
+/* ========================= */
+
+@media(max-width:768px){
+
+    nav{display:none;}  /* clean mobile look */
+
+    .hero{
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        padding:0 20px;
+    }
+
+    .hero-right{
+        display:none; /* remove image on phone */
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        max-width:100%;
+    }
+
+    .consult-flex{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .consult-image{
+        width:100%;
+        height:250px;
+    }
+
+    .strip-flex{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+}
+
 </style>
 </head>
 
@@ -329,9 +339,8 @@ footer {
             <span class="small-tag">BOOK SESSION</span>
             <h2>TATTOOS & CONSULTATION</h2>
             <p>
-                Any inquiries? Let us find the best fit for your needs.
                 Every design begins with a personal consultation to bring
-                your vision to life with precision.
+                your vision to life with precision and artistic mastery.
             </p>
             <a href="#" class="btn-dark">CONTACT NOW</a>
         </div>
@@ -352,26 +361,26 @@ footer {
         <div class="product-grid">
             <div class="product">
                 <div class="product-image"></div>
-                <h4>Stencil Prep – Bold Flash Ready</h4>
-                <p>₹5,999</p>
+                <h4>Blackwork Sleeve</h4>
+                <p>₹8,999</p>
             </div>
 
             <div class="product">
                 <div class="product-image"></div>
-                <h4>Traditional Ink – Bold Lines</h4>
-                <p>₹8,499</p>
+                <h4>Fine Line Minimal</h4>
+                <p>₹4,999</p>
             </div>
 
             <div class="product">
                 <div class="product-image"></div>
-                <h4>Vintage Coil – Classic Machine</h4>
+                <h4>Portrait Realism</h4>
                 <p>₹12,999</p>
             </div>
 
             <div class="product">
                 <div class="product-image"></div>
-                <h4>Precision Ink Session</h4>
-                <p>₹9,499</p>
+                <h4>Traditional Design</h4>
+                <p>₹6,499</p>
             </div>
         </div>
     </div>
