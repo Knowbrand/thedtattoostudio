@@ -9,57 +9,97 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#111;
+    font-family:'Poppins', sans-serif;
+    background:#0c0c0c;
     color:#fff;
     overflow-x:hidden;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
 /* NAVBAR */
-.navbar{
-    padding:20px 0;
-    background:#111;
-    position:absolute;
-    width:100%;
-    z-index:10;
-}
 
-.nav-flex{
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:20px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    z-index:1000;
 }
 
 .logo{
     font-family:'Oswald';
-    font-size:28px;
+    font-size:26px;
     letter-spacing:3px;
 }
 
-nav a{
-    margin:0 12px;
-    text-decoration:none;
-    color:#ccc;
-    font-size:14px;
+.nav-links{
+    display:flex;
+    gap:40px;
 }
 
-.cart{
+.nav-links a{
+    text-decoration:none;
+    color:#fff;
     font-size:14px;
-    border:1px solid #555;
-    padding:6px 14px;
-    border-radius:20px;
+    letter-spacing:1px;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+    gap:5px;
+}
+
+.hamburger span{
+    width:25px;
+    height:2px;
+    background:#fff;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:70%;
+    height:100%;
+    background:#111;
+    padding:100px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    transition:0.4s;
+    z-index:999;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    text-decoration:none;
+    color:#fff;
+    font-size:18px;
 }
 
 /* HERO */
+
 .hero{
     height:100vh;
     display:flex;
@@ -67,204 +107,147 @@ nav a{
     padding:0 5%;
 }
 
-.hero-left{flex:1;}
-
-.hero-right{
+.hero-left{
     flex:1;
-    height:85%;
-    background:#222;
 }
 
 .small-tag{
     font-size:12px;
-    letter-spacing:2px;
+    letter-spacing:3px;
     color:#aaa;
 }
 
 .hero h1{
     font-family:'Oswald';
-    font-size:64px;
+    font-size:70px;
     line-height:1.1;
     margin:20px 0;
+    letter-spacing:2px;
 }
 
 .hero p{
+    max-width:500px;
     color:#bbb;
-    max-width:500px;
     margin-bottom:30px;
 }
 
-.btn-outline{
+.btn{
     border:1px solid #fff;
-    padding:12px 30px;
+    padding:14px 35px;
     text-decoration:none;
     color:#fff;
     display:inline-block;
+    transition:0.3s;
 }
 
-/* BRUSH SECTIONS */
-.brush-light{
-    height:80px;
-    background:#e9e3db;
+.btn:hover{
+    background:#fff;
+    color:#000;
 }
 
-.brush-dark{
-    height:80px;
-    background:#111;
+/* BRUSH TRANSITION */
+
+.brush{
+    height:100px;
+    background:linear-gradient(to bottom,#0c0c0c 50%,#f4efe6 50%);
 }
 
-/* CONSULT */
-.consult{
-    background:#e9e3db;
-    color:#111;
-    padding:120px 0;
+/* LIGHT SECTION */
+
+.light-section{
+    background:#f4efe6;
+    color:#000;
+    padding:100px 5%;
 }
 
-.consult-flex{
-    display:flex;
-    gap:60px;
-    align-items:center;
-}
-
-.consult-text h2{
+.light-section h2{
     font-family:'Oswald';
-    font-size:42px;
-    margin:20px 0;
+    font-size:40px;
+    margin-bottom:20px;
 }
 
-.consult-text p{
-    max-width:500px;
-    margin-bottom:30px;
+.light-section p{
+    max-width:600px;
+    margin-bottom:20px;
 }
 
-.consult-image{
-    flex:1;
-    height:400px;
-    background:#ccc;
+/* DARK GALLERY */
+
+.dark-section{
+    padding:100px 5%;
 }
 
-.btn-dark{
-    display:inline-block;
-    padding:12px 30px;
-    background:#111;
-    color:#fff;
-    text-decoration:none;
-}
-
-/* FEATURED */
-.featured{
-    padding:120px 0;
-}
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
+.dark-section h2{
+    font-family:'Oswald';
+    font-size:40px;
     margin-bottom:50px;
 }
 
-.section-head h2{
-    font-family:'Oswald';
-    font-size:40px;
-}
-
-.product-grid{
+.gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
 }
 
-.product{
-    transition:0.3s ease;
-}
-
-.product-image{
-    height:320px;
+.gallery div{
     background:#222;
-    margin-bottom:15px;
+    height:250px;
 }
 
-.product h4{margin-bottom:5px;}
-.product p{color:#bbb;}
+/* BOOKING BANNER */
 
-.product:hover{
-    transform:translateY(-5px);
+.booking{
+    background:#f4efe6;
+    color:#000;
+    padding:80px 5%;
+    text-align:center;
 }
 
-/* BOOKING STRIP */
-.booking-strip{
-    background:#e9e3db;
-    color:#111;
-    padding:80px 0;
-}
-
-.strip-flex{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.strip-flex h3{
+.booking h2{
     font-family:'Oswald';
-    font-size:32px;
+    font-size:36px;
+    margin-bottom:20px;
 }
-
-/* INFO */
-.info-strip{
-    padding:100px 0;
-    background:#111;
-}
-
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:40px;
-}
-
-.info-grid h4{margin-bottom:10px;}
 
 /* FOOTER */
+
 footer{
-    background:#0a0a0a;
-    padding:100px 0 20px;
-}
-
-.footer-grid{
+    background:#111;
+    padding:80px 5%;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:50px;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    font-size:14px;
 }
 
-.footer-grid h4{margin-bottom:15px;}
+footer h4{
+    margin-bottom:20px;
+    font-family:'Oswald';
+}
 
-.footer-grid p{
+footer p{
     color:#aaa;
-    margin-bottom:8px;
+    line-height:1.6;
 }
 
-.copyright{
-    text-align:center;
-    margin-top:40px;
-    font-size:12px;
-    color:#666;
-}
+/* MOBILE RESPONSIVE */
 
-/* ========================= */
-/* MOBILE OPTIMIZATION */
-/* ========================= */
+@media(max-width:900px){
 
-@media(max-width:768px){
-
-    nav{display:none;}  /* clean mobile look */
-
-    .hero{
-        flex-direction:column;
-        justify-content:center;
-        text-align:center;
-        padding:0 20px;
+    .nav-links{
+        display:none;
     }
 
-    .hero-right{
-        display:none; /* remove image on phone */
+    .hamburger{
+        display:flex;
+    }
+
+    .hero{
+        height:auto;
+        min-height:100vh;
+        padding:140px 20px 80px;
+        text-align:center;
+        justify-content:flex-start;
     }
 
     .hero h1{
@@ -275,180 +258,101 @@ footer{
         max-width:100%;
     }
 
-    .consult-flex{
-        flex-direction:column;
-        text-align:center;
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .consult-image{
-        width:100%;
-        height:250px;
-    }
-
-    .strip-flex{
-        flex-direction:column;
-        gap:20px;
-        text-align:center;
+    footer{
+        grid-template-columns:1fr;
     }
 
 }
 
 </style>
 </head>
-
 <body>
 
-<header class="navbar">
-    <div class="container nav-flex">
-        <div class="logo">THE D</div>
-        <nav>
-            <a href="#">Studio</a>
-            <a href="#">Shop</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Blog</a>
-            <a href="#">FAQ</a>
-        </nav>
-        <div class="cart">₹0.00</div>
+<nav>
+    <div class="logo">THE D</div>
+
+    <div class="nav-links">
+        <a href="#">Studio</a>
+        <a href="#">Gallery</a>
+        <a href="#">Marketplace</a>
+        <a href="#">Contact</a>
     </div>
-</header>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#">Studio</a>
+    <a href="#">Gallery</a>
+    <a href="#">Marketplace</a>
+    <a href="#">Contact</a>
+</div>
 
 <section class="hero">
     <div class="hero-left">
-        <span class="small-tag">PREMIUM ARTISTRY</span>
-        <h1>
-            JOIN YOUR<br>
-            BODY TO ARTISTIC<br>
-            EXPRESSION
-        </h1>
-        <p>
-            Dedicated to fine art and custom tattoo designs crafted with
-            precision and professional standards.
-        </p>
-        <a href="#" class="btn-outline">BOOK SESSION</a>
-    </div>
-
-    <div class="hero-right"></div>
-</section>
-
-<div class="brush-light"></div>
-
-<section class="consult">
-    <div class="container consult-flex">
-        <div class="consult-text">
-            <span class="small-tag">BOOK SESSION</span>
-            <h2>TATTOOS & CONSULTATION</h2>
-            <p>
-                Every design begins with a personal consultation to bring
-                your vision to life with precision and artistic mastery.
-            </p>
-            <a href="#" class="btn-dark">CONTACT NOW</a>
-        </div>
-
-        <div class="consult-image"></div>
+        <div class="small-tag">PREMIUM ARTISTRY</div>
+        <h1>JOIN YOUR<br>BODY TO ARTISTIC<br>EXPRESSION</h1>
+        <p>Dedicated to fine art and custom tattoo designs crafted with precision and professional standards.</p>
+        <a href="#" class="btn">BOOK SESSION</a>
     </div>
 </section>
 
-<div class="brush-dark"></div>
+<div class="brush"></div>
 
-<section class="featured">
-    <div class="container">
-        <div class="section-head">
-            <h2>NEW IN</h2>
-            <span>VIEW ALL</span>
-        </div>
+<section class="light-section">
+    <h2>Tattoos & Consultation</h2>
+    <p>Visit The D Tattoo Studio near Telibandha, Raipur for custom tattoos, cover-ups, and detailed artwork. Every design is crafted uniquely for you.</p>
+    <a href="#" class="btn" style="color:#000;border-color:#000;">Contact Now</a>
+</section>
 
-        <div class="product-grid">
-            <div class="product">
-                <div class="product-image"></div>
-                <h4>Blackwork Sleeve</h4>
-                <p>₹8,999</p>
-            </div>
-
-            <div class="product">
-                <div class="product-image"></div>
-                <h4>Fine Line Minimal</h4>
-                <p>₹4,999</p>
-            </div>
-
-            <div class="product">
-                <div class="product-image"></div>
-                <h4>Portrait Realism</h4>
-                <p>₹12,999</p>
-            </div>
-
-            <div class="product">
-                <div class="product-image"></div>
-                <h4>Traditional Design</h4>
-                <p>₹6,499</p>
-            </div>
-        </div>
+<section class="dark-section">
+    <h2>Our Latest Work</h2>
+    <div class="gallery">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </section>
 
-<div class="brush-light"></div>
-
-<section class="booking-strip">
-    <div class="container strip-flex">
-        <h3>BOOK NOW. PAY AT STUDIO.</h3>
-        <a href="#" class="btn-dark">FIND OUT MORE</a>
-    </div>
-</section>
-
-<section class="info-strip">
-    <div class="container info-grid">
-        <div>
-            <h4>FREE CONSULTATION</h4>
-            <p>Discuss your idea before finalizing.</p>
-        </div>
-        <div>
-            <h4>CUSTOM ARTWORK</h4>
-            <p>Designed exclusively for you.</p>
-        </div>
-        <div>
-            <h4>STERILE EQUIPMENT</h4>
-            <p>Professional hygiene standards.</p>
-        </div>
-        <div>
-            <h4>AFTERCARE SUPPORT</h4>
-            <p>We guide you through healing.</p>
-        </div>
-    </div>
+<section class="booking">
+    <h2>Book Your Session Today</h2>
+    <p>Police Station, Near Asian Paints Telibandha Bridge, beside Shani Mandir, Avanti Vihar Road, Raipur, Chhattisgarh 492001</p>
 </section>
 
 <footer>
-    <div class="container footer-grid">
-        <div>
-            <h4>CONTACT</h4>
-            <p>
-            Police Station, Near Asian Paints Telibandha bridge,<br>
-            beside Shani Mandir, Avanti Vihar road,<br>
-            Raipur, Chhattisgarh 492001
-            </p>
-            <p>+91 98765 43210</p>
-        </div>
-
-        <div>
-            <h4>QUICK LINKS</h4>
-            <p>Home</p>
-            <p>Studio</p>
-            <p>Gallery</p>
-            <p>Shop</p>
-        </div>
-
-        <div>
-            <h4>SERVICES</h4>
-            <p>Custom Tattoos</p>
-            <p>Cover Ups</p>
-            <p>Blackwork</p>
-            <p>Realism</p>
-        </div>
+    <div>
+        <h4>THE D TATTOO STUDIO</h4>
+        <p>Professional tattoo studio in Raipur delivering premium custom designs and high hygiene standards.</p>
     </div>
 
-    <div class="copyright">
-        © 2026 The D Tattoo Studio
+    <div>
+        <h4>Quick Links</h4>
+        <p>Studio</p>
+        <p>Gallery</p>
+        <p>Marketplace</p>
+        <p>Contact</p>
+    </div>
+
+    <div>
+        <h4>Location</h4>
+        <p>Telibandha, Raipur<br>Chhattisgarh 492001</p>
     </div>
 </footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
