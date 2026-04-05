@@ -22,26 +22,37 @@ body{
     overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 nav{
     position:fixed;
     width:100%;
     top:0;
     left:0;
-    padding:20px 5%;
+    padding:25px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(8px);
+    transition:0.3s ease;
     z-index:1000;
+}
+
+nav.shrink{
+    padding:12px 5%;
+    background:#000;
 }
 
 .logo{
     font-family:'Oswald';
     font-size:26px;
-    letter-spacing:3px;
+    letter-spacing:4px;
+    transition:0.3s;
+}
+
+nav.shrink .logo{
+    font-size:22px;
 }
 
 .nav-links{
@@ -54,9 +65,27 @@ nav{
     color:#fff;
     font-size:14px;
     letter-spacing:1px;
+    position:relative;
+    transition:0.3s;
 }
 
-/* HAMBURGER */
+/* Luxury underline animation */
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0%;
+    height:1px;
+    background:#fff;
+    transition:0.4s ease;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* ================= HAMBURGER ================= */
 
 .hamburger{
     display:none;
@@ -69,9 +98,10 @@ nav{
     width:25px;
     height:2px;
     background:#fff;
+    transition:0.3s;
 }
 
-/* MOBILE MENU */
+/* ================= MOBILE MENU ================= */
 
 .mobile-menu{
     position:fixed;
@@ -96,19 +126,37 @@ nav{
     text-decoration:none;
     color:#fff;
     font-size:18px;
+    transition:0.3s;
 }
 
-/* HERO */
+.mobile-menu a:hover{
+    letter-spacing:2px;
+}
+
+/* ================= HERO ================= */
 
 .hero{
     height:100vh;
     display:flex;
     align-items:center;
     padding:0 5%;
+    position:relative;
+}
+
+/* Desktop hero background */
+@media(min-width:901px){
+    .hero{
+        background:
+        linear-gradient(to right, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.3)),
+        url('https://images.unsplash.com/photo-1600442715818-4d7d4b6c7a4c?auto=format&fit=crop&w=1600&q=80');
+        background-size:cover;
+        background-position:center right;
+    }
 }
 
 .hero-left{
     flex:1;
+    animation:fadeUp 1s ease forwards;
 }
 
 .small-tag{
@@ -131,28 +179,46 @@ nav{
     margin-bottom:30px;
 }
 
+/* Luxury button */
 .btn{
     border:1px solid #fff;
     padding:14px 35px;
     text-decoration:none;
     color:#fff;
     display:inline-block;
-    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    left:-100%;
+    top:0;
+    width:100%;
+    height:100%;
+    background:#fff;
+    transition:0.4s;
+    z-index:-1;
+}
+
+.btn:hover::before{
+    left:0;
 }
 
 .btn:hover{
-    background:#fff;
     color:#000;
 }
 
-/* BRUSH TRANSITION */
+/* ================= BRUSH ================= */
 
 .brush{
     height:100px;
     background:linear-gradient(to bottom,#0c0c0c 50%,#f4efe6 50%);
 }
 
-/* LIGHT SECTION */
+/* ================= LIGHT SECTION ================= */
 
 .light-section{
     background:#f4efe6;
@@ -171,7 +237,7 @@ nav{
     margin-bottom:20px;
 }
 
-/* DARK GALLERY */
+/* ================= GALLERY ================= */
 
 .dark-section{
     padding:100px 5%;
@@ -192,9 +258,15 @@ nav{
 .gallery div{
     background:#222;
     height:250px;
+    transition:0.4s;
 }
 
-/* BOOKING BANNER */
+.gallery div:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* ================= BOOKING ================= */
 
 .booking{
     background:#f4efe6;
@@ -203,13 +275,7 @@ nav{
     text-align:center;
 }
 
-.booking h2{
-    font-family:'Oswald';
-    font-size:36px;
-    margin-bottom:20px;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
     background:#111;
@@ -220,17 +286,7 @@ footer{
     font-size:14px;
 }
 
-footer h4{
-    margin-bottom:20px;
-    font-family:'Oswald';
-}
-
-footer p{
-    color:#aaa;
-    line-height:1.6;
-}
-
-/* MOBILE RESPONSIVE */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -248,14 +304,11 @@ footer p{
         padding:140px 20px 80px;
         text-align:center;
         justify-content:flex-start;
+        background:none;
     }
 
     .hero h1{
         font-size:40px;
-    }
-
-    .hero p{
-        max-width:100%;
     }
 
     .gallery{
@@ -268,11 +321,24 @@ footer p{
 
 }
 
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="navbar">
     <div class="logo">THE D</div>
 
     <div class="nav-links">
@@ -309,8 +375,7 @@ footer p{
 
 <section class="light-section">
     <h2>Tattoos & Consultation</h2>
-    <p>Visit The D Tattoo Studio near Telibandha, Raipur for custom tattoos, cover-ups, and detailed artwork. Every design is crafted uniquely for you.</p>
-    <a href="#" class="btn" style="color:#000;border-color:#000;">Contact Now</a>
+    <p>Visit The D Tattoo Studio near Telibandha, Raipur for custom tattoos and detailed artistic designs.</p>
 </section>
 
 <section class="dark-section">
@@ -325,15 +390,14 @@ footer p{
 
 <section class="booking">
     <h2>Book Your Session Today</h2>
-    <p>Police Station, Near Asian Paints Telibandha Bridge, beside Shani Mandir, Avanti Vihar Road, Raipur, Chhattisgarh 492001</p>
+    <p>Near Telibandha Bridge, Avanti Vihar Road, Raipur, Chhattisgarh 492001</p>
 </section>
 
 <footer>
     <div>
         <h4>THE D TATTOO STUDIO</h4>
-        <p>Professional tattoo studio in Raipur delivering premium custom designs and high hygiene standards.</p>
+        <p>Premium custom tattoo studio in Raipur delivering professional artistry.</p>
     </div>
-
     <div>
         <h4>Quick Links</h4>
         <p>Studio</p>
@@ -341,7 +405,6 @@ footer p{
         <p>Marketplace</p>
         <p>Contact</p>
     </div>
-
     <div>
         <h4>Location</h4>
         <p>Telibandha, Raipur<br>Chhattisgarh 492001</p>
@@ -349,9 +412,21 @@ footer p{
 </footer>
 
 <script>
+
 function toggleMenu(){
     document.getElementById("mobileMenu").classList.toggle("active");
 }
+
+/* Sticky Shrink Effect */
+window.addEventListener("scroll",function(){
+    const nav=document.getElementById("navbar");
+    if(window.scrollY>80){
+        nav.classList.add("shrink");
+    }else{
+        nav.classList.remove("shrink");
+    }
+});
+
 </script>
 
 </body>
